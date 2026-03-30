@@ -1,0 +1,58 @@
+{
+  "_comment": "TesterPresent J2534 Emulator - ECU Configuration File",
+  "_comment2": "Override any field to simulate a specific ECU. Unset fields use defaults.",
+
+  "Identity": {
+    "VIN":                   "1FMJK1HT0MEA00001",
+    "ECUSerialNumber":       "TP-EMU-0001",
+    "HardwarePartNumber":    "BA5Z-14D212-A",
+    "SoftwarePartNumber":    "BA5Z-14D212-BA",
+    "CalibrationID":         "FK5A_7J225_AC",
+    "ApplicationSwFPN":      "FK5A_14D212_AH",
+    "BootSoftwareFPN":       "FK5A_14D212_AA",
+    "ManufacturerName":      "Tester Present Emu",
+    "RequestCanId":          "0x7E0",
+    "ResponseCanId":         "0x7E8",
+    "Use29BitIds":           false
+  },
+
+  "BatteryVoltage_mV": 12500,
+
+  "DIDs": {
+    "_comment": "Additional DIDs beyond the built-in defaults. Format: 'XXXX': 'hex bytes space-separated'",
+    "DD00": "00 02 71 00",
+    "DD01": "60",
+    "DD02": "00",
+    "DD03": "00 00",
+    "DD04": "00",
+    "DD05": "64"
+  },
+
+  "DTCs": {
+    "_comment": "Pre-populate DTCs. Format: 'PXXXX' or '0xhhhhhh': status_byte_hex",
+    "_example": { "P0300": "0F" }
+  },
+
+  "SecurityAlgorithm": {
+    "_comment": "Supported values: 'default' (XOR-rotate), 'zero' (seed=key), 'fixed_key'",
+    "Type":     "default",
+    "FixedKey": "00 00 00 00"
+  },
+
+  "Profiles": {
+    "_comment": "Named ECU profiles you can switch at runtime",
+    "Ford_FG_PCM": {
+      "RequestCanId":  "0x7E0",
+      "ResponseCanId": "0x7E8",
+      "VIN":           "6FPAAAJZXGE123456"
+    },
+    "Ford_FG_TCM": {
+      "RequestCanId":  "0x7E1",
+      "ResponseCanId": "0x7E9"
+    },
+    "Generic_OBD2": {
+      "RequestCanId":  "0x7DF",
+      "ResponseCanId": "0x7E8"
+    }
+  }
+}
